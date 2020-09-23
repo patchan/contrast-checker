@@ -19,9 +19,9 @@ fn parse_arg(arg: String, num: i32) -> Result<rgb::RGB8, Box<dyn std::error::Err
     let hex: String = create_hex_string(arg);
     println!("Color {}: {}", num, hex);
     let rgb = hex_to_rgb(hex.as_str());
-    let r = rgb.0 as u8;
-    let g = rgb.1 as u8;
-    let b = rgb.2 as u8;
+    let r = (rgb.0 * 255.0) as u8;
+    let g = (rgb.1 * 255.0) as u8;
+    let b = (rgb.2 * 255.0) as u8;
     return Ok(RGB::new(r, g, b));
   }
   if arg.contains(",") {
@@ -34,7 +34,7 @@ fn parse_arg(arg: String, num: i32) -> Result<rgb::RGB8, Box<dyn std::error::Err
       return Ok(RGB::new(r, g, b));
     }
   }
-  panic!("Color {} is invalid", num);
+  panic!("Color {}: {} is invalid", num, arg);
 }
 
 fn create_hex_string(arg: String) -> String {
