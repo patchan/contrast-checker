@@ -26,13 +26,15 @@ fn parse_arg(arg: String, num: i32) -> Result<rgb::RGB8, Box<dyn std::error::Err
   }
   if arg.contains(",") {
     let args: Vec<&str> = arg.split(",").collect();
-    let r = args[0].parse::<u8>().unwrap();
-    let g = args[1].parse::<u8>().unwrap();
-    let b = args[2].parse::<u8>().unwrap();
-    println!("Color {}: rgb({}, {}, {})", num, r, g, b);
-    return Ok(RGB::new(r, g, b));
+    if args.len() == 3 {
+      let r = args[0].parse::<u8>().unwrap();
+      let g = args[1].parse::<u8>().unwrap();
+      let b = args[2].parse::<u8>().unwrap();
+      println!("Color {}: rgb({}, {}, {})", num, r, g, b);
+      return Ok(RGB::new(r, g, b));
+    }
   }
-  panic!("invalid color");
+  panic!("Color {} is invalid", num);
 }
 
 fn create_hex_string(arg: String) -> String {
