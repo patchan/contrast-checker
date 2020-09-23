@@ -1,39 +1,42 @@
 extern crate contrast;
 extern crate rgb;
-use std::env;
+extern crate hsluv;
 use rgb::RGB;
+use hsluv::hex_to_rgb;
 
 
 fn main() {
-  let args: Vec<String> = env::args().collect();
-  println!("{}", args.len());
-  if args.len() != 3 {
-    panic!("not enough arguments");
-  }
+  let arg1 = std::env::args().nth(1).expect("color 1 not given");
+  let arg2 = std::env::args().nth(2).expect("color 2 not given");
 
-  let col1 = &args[1];
-  let col2 = &args[2];
-  println!("Color 1: {}", col1);
-  println!("Color 2: {}", col2);
-  let ratio: f32 = contrast::contrast(parse_arg(col1).unwrap(), parse_arg(col2).unwrap());
-  println!("Contrast ratio {}:1", ratio);
+  let ratio: f32 = contrast::contrast(parse_arg(arg1, 1).unwrap(), parse_arg(arg2, 2).unwrap());
+  println!("Contrast ratio: {}:1", ratio);
 }
 
-fn parse_arg(arg: &str) -> Result<rgb::RGB8, Box<dyn std::error::Error>> {
+fn parse_arg(arg: String, num: i32) -> Result<rgb::RGB8, Box<dyn std::error::Error>> {
   let len = arg.chars().count();
-  if len == 2 || len == 6 {
-    convert_hex();
+  if len == 6 {
+    let hex: String = create_hex_string(arg);
+    println!("Color {}: {}", num, hex);
+    let rgb = hex_to_rgb(hex.as_str());
+    let r = rgb.0 as u8;
+    let g = rgb.1 as u8;
+    let b = rgb.2 as u8;
+    return Ok(RGB::new(r, g, b));
   }
   if arg.contains(",") {
     let args: Vec<&str> = arg.split(",").collect();
     let r = args[0].parse::<u8>().unwrap();
     let g = args[1].parse::<u8>().unwrap();
     let b = args[2].parse::<u8>().unwrap();
+    println!("Color {}: rgb({}, {}, {})", num, r, g, b);
     return Ok(RGB::new(r, g, b));
   }
   panic!("invalid color");
 }
 
-fn convert_hex() {
-
+fn create_hex_string(arg: String) -> String {
+  let mut hex: String = "#".to_owned();
+  hex.push_str(&arg);
+  return hex;
 }

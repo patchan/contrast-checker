@@ -9,3 +9,4 @@ edition = "2018"
 [dependencies]
 contrast = "0.1.0"
 rgb = "0.8.25"
+rust-hsluv = "0.1.4"

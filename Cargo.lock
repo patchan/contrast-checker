@@ -28,6 +28,7 @@ version = "0.1.0"
 dependencies = [
  "contrast",
  "rgb",
+ "rust-hsluv",
 ]
 
 [[package]]
@@ -47,3 +48,9 @@ checksum = "287f3c3f8236abb92d8b7e36797f19159df4b58f0a658cc3fb6dd3004b1f3bd3"
 dependencies = [
  "bytemuck",
 ]
+
+[[package]]
+name = "rust-hsluv"
+version = "0.1.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "efe2374f2385cdd8755a446f80b2a646de603c9d8539ca38734879b5c71e378b"
