@@ -2,7 +2,13 @@
 name = "contrast-checker"
 version = "0.1.0"
 authors = ["patchan <11303629+patchan@users.noreply.github.com>"]
+license-file = "LICENSE.txt"
+description = "A simple CLI tool for calculating the contrast ratio between two colours"
 edition = "2018"
+repository = "https://github.com/patchan/contrast-checker/"
+readme = "README.md"
+keywords = ["color", "colour", "contrast", "ratio"]
+categories = ["command-line-interface"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

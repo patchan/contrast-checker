@@ -14,18 +14,18 @@ fn contrast_checker() {
   let matches = App::new("contrast-checker")
                                 .version("v0.1")
                                 .about("Simple tool to calculate the contrast ratio between any two colours.")
-                                .arg(Arg::with_name("color1")
+                                .arg(Arg::with_name("colour1")
                                           .required(true)
                                           .index(1)
-                                          .help("enter a color as a Hex code containing 6 numbers or as a comma separated R,G,B list"))
-                                .arg(Arg::with_name("color2")
+                                          .help("enter a colour as a Hex code containing 6 numbers or as a comma separated R,G,B list"))
+                                .arg(Arg::with_name("colour2")
                                           .required(true)
                                           .index(2)
-                                          .help("enter a color as a Hex code containing 6 numbers or as a comma separated R,G,B list"))
+                                          .help("enter a colour as a Hex code containing 6 numbers or as a comma separated R,G,B list"))
                                 .get_matches();
 
-  let arg1: &str = matches.value_of("color1").unwrap();
-  let arg2: &str = matches.value_of("color2").unwrap();
+  let arg1: &str = matches.value_of("colour1").unwrap();
+  let arg2: &str = matches.value_of("colour2").unwrap();
 
   let ratio: f32 = calculate_contrast(arg1, arg2);
 
@@ -33,9 +33,9 @@ fn contrast_checker() {
 }
 
 fn calculate_contrast(arg1: &str, arg2: &str) -> f32 {
-  let color1: RGB<u8> = convert_to_rgb(arg1, 1).unwrap();
-  let color2: RGB<u8> = convert_to_rgb(arg2, 2).unwrap();
-  return contrast::contrast(color1,color2);
+  let colour1: RGB<u8> = convert_to_rgb(arg1, 1).unwrap();
+  let colour2: RGB<u8> = convert_to_rgb(arg2, 2).unwrap();
+  return contrast::contrast(colour1,colour2);
 }
 
 fn print_result(ratio: f32) {
