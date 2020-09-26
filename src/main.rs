@@ -13,7 +13,7 @@ fn main() {
 fn contrast_checker() {
   let matches = App::new("contrast-checker")
                                 .version("v0.1")
-                                .about("Calculate the contrast ratio between any two colours.")
+                                .about("Simple tool to calculate the contrast ratio between any two colours.")
                                 .arg(Arg::with_name("color1")
                                           .required(true)
                                           .index(1)

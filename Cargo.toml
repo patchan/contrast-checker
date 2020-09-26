@@ -1,5 +1,5 @@
 [package]
-name = "contrast-ratio"
+name = "contrast-checker"
 version = "0.1.0"
 authors = ["patchan <11303629+patchan@users.noreply.github.com>"]
 edition = "2018"
