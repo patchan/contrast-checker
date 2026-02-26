@@ -17,10 +17,10 @@ cargo install --path .
 
 You can calculate the contrast between two colours by using:
 ```
-contrast-checker <color1> <color2>
+contrast-checker <colour1> <colur2>
 ```
 
-`color1` and `color2` are entered as a Hex code (i.e. `#ffffff`) or as a comma separated RGB list (i.e. `255,255,255`). The `#` for Hex code is optional.
+`colour1` and `colour2` are entered as a Hex code (i.e. `#ffffff`) or comma separated RGB list (i.e. `255,255,255`). The `#` for Hex code is optional.
 
 For example:
 ```
