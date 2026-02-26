@@ -10,7 +10,7 @@ Colour contrast ratio is calculated based on [WCAG 2.0 guidelines](https://www.w
 
 If you have [Rust](https://www.rust-lang.org/) installed, you can run
 ```
-cargo install contrast-checker
+cargo install --path .
 ```
 
 # Usage

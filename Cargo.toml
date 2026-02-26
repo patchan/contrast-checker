@@ -1,9 +1,9 @@
 [package]
 name = "contrast-checker"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["patchan <11303629+patchan@users.noreply.github.com>"]
 license = "MIT"
-description = "A simple CLI tool for calculating the contrast ratio between two colours"
+description = "A simple CLI tool for calculating the contrast ratio between two colours to check for WCAG AA/AAA compliance"
 edition = "2018"
 repository = "https://github.com/patchan/contrast-checker/"
 readme = "README.md"
@@ -13,7 +13,7 @@ categories = ["command-line-utilities"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-clap = "2.33.3"
-contrast = "0.1.0"
-rgb = "0.8.25"
+clap = { version = "4.5", features = ["derive", "cargo"] }
+contrast = "0.1.1"
+rgb = "0.8.52"
 rust-hsluv = "0.1.4"
