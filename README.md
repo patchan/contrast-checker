@@ -20,9 +20,9 @@ You can calculate the contrast between two colours by using:
 contrast-checker <color1> <color2>
 ```
 
-`color1` and `color2` are entered as either a Hex code without the `#` (i.e. `ffffff`) or as a comma separated RGB list (i.e. `255,255,255`).
+`color1` and `color2` are entered as a Hex code (i.e. `#ffffff`) or as a comma separated RGB list (i.e. `255,255,255`). The `#` for Hex code is optional.
 
 For example:
 ```
-contrast-checker ffffff 255,255,255
+contrast-checker #ffffff 255,255,255
 ```
